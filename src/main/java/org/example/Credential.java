@@ -7,10 +7,14 @@ public class Credential {
     private String password;
     private String service;
 
-    Credential() {
+    Credential(String name, String password, String service) {
         this.setName(name);
         this.setPassword(password);
         this.setService(service);
+    }
+
+    public void encryptPassword() {
+        System.out.println(Encryptor.encryptPass(password));;
     }
 
     public void setName(String name) {

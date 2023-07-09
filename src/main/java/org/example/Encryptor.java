@@ -2,42 +2,22 @@ package org.example;
 
 public class Encryptor {
 
-    //private String password;
-    //private String decryPassword;
-    //private String encryPass;
 
-    Encryptor() {
-        this.setPassword(password);
-    }
+    public static String encryptPass(String password) {
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+        Keys.initKeys();
 
-    public String encryptPass(String password) {
-        Keys key = new Keys();
-        key.createKeys();
-        char[] splPass = password.toCharArray();
-        String[] encPassArr = new String[splPass.length - 1];
+        char[] splitPassword = password.toCharArray();
+        StringBuilder encryptedPassword = new StringBuilder();
 
-        for (int i = 0; i < splPass.length - 1; i++) {
-            encPassArr[i] = key.getKey(splPass[i]);
+        for (int i = 0; i < splitPassword.length; i++) {
+            encryptedPassword.append(Keys.getKey(splitPassword[i]));
         }
 
-        String encPass = String.join("", encPassArr);
-
-        return encPass;
+        return encryptedPassword.toString();
     }
 
-    public void decryptPass(String encryPass) {
+    public static void decryptPass(String encryPass) {
 
-    }
-
-    public String getDecryPass() {
-        return decryPassword;
-    }
-
-    public String getEncryPass() {
-        return encryPass;
     }
 }
