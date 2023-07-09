@@ -2,9 +2,9 @@ package org.example;
 
 public class Encryptor {
 
-    private String password;
-    private String decryPassword;
-    private String encryPass;
+    //private String password;
+    //private String decryPassword;
+    //private String encryPass;
 
     Encryptor() {
         this.setPassword(password);
